@@ -127,35 +127,31 @@ h3 {
 }
 
 /* HERO */
-.hero {
-  margin-top: 8px;
-  height: calc(100vh - 96px);
-  position: relative;
-
-  background-image: url("img/foto\ capa\ atualizada\ figma.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  background-position: 35% 60%;
+.hero-movimento {
+  height: 75vh;
+  background-image: url("img/capa\ primeira\ do\ site.png");  
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: moverBg 45s linear infinite;
 }
 
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 35% center;
-  display: block;
+@keyframes moverBg {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -1500px;
+  }
 }
 
 .cta {
   position: absolute;
-  bottom: 60px;
+  bottom: 120px;
   right: 80px;
 
-  padding: 16px 42px;
+  padding: 14px 60px;
   font-size: 14px;
-  letter-spacing: 2px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 
   background: transparent;
@@ -483,98 +479,143 @@ h3 {
   color: #1a1818;
 }
 
-
-
-/*MOBILE*/
+/* ===================== */
+/* MOBILE */
+/* ===================== */
 @media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
   }
 
-  /* NAV */
-  .nav {
-    flex-direction: column;
-    gap: 24px;
+  /* HEADER / NAV */
+  .header {
+    height: auto;
+    padding: 24px;
   }
 
-  .nav-left,
-  .nav-right {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 16px;
+  }
+
+  .nav ul {
     justify-content: center;
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+
+  /*LOGO MOBILE*/
+  .logo {
+    order:1;
   }
 
   .logo img {
-    width: 70px;
+    width: 90px;
+    display: block;
+    margin: 0 auto;
   }
+
+  .nav-left {
+  order: 2;
+}
+
+.nav-right {
+  order: 3;
+}
+
+.nav-left,
+.nav-right {
+  justify-content: center;
+  gap: 16px;
+}
 
   /* HERO */
   .hero {
-    height: 85vh;
+    height: 60vh;
+    min-height: 420px;
+    background-position: center top;
   }
 
-  .hero img {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
+  /* CTA */
   .cta {
-    bottom: 48px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;
+    bottom: 16vh;
+    left: 70%;
+    transform: translateX(-70%);
+
+    display:inline-flex;
+    align-items: center;
+    justify-content:center;
+
+    padding: 16px 70px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    white-space:unset;
+    }
+
+  .faixa{
+    display: flex;
+
   }
 
-  
   /* SOBRE */
   .sobre {
-    padding: 80px 0;
+    padding: 64px 24px;
   }
 
   .sobre-intro {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
   .sobre-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   /* AMBIENTES */
-  .ambientes {
-    flex-direction: column;
-    gap: 24px;
+  .ambientes-container {
+    flex-direction:column;
+    display: flex;
+    gap: 40px;
+    align-items: center;
   }
 
-  .ambientes img {
-    height: 260px;
+  .ambientes-container img {
+    width: 100%;
+    height: auto;
+    object-fit:contain;
+    max-height: 580px;
+    border-radius: 8px;
   }
 
   /* SERVIÇOS */
   .servicos {
-    grid-template-columns: 1fr;
-    padding: 64px 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16;
   }
 
   .servico img {
-    height: 280px;
+    height: 180px;
+    object-fit: cover;
   }
 
   /* FOOTER */
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 64px;
-  }
-
-  .footer-payments {
-    gap: 12px;
+    gap: 48px;
   }
 
   .footer-copy {
-    font-size: 10px;
-    padding-bottom: 16px;
+    font-size: 11px;
+    padding-bottom: 20px;
   }
 }
